@@ -1,0 +1,523 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+body{
+    background: #f5f5f5;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    background: white;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    box-shadow: 0 2px 5px gray;
+}
+
+.logo{
+    font-size: 50px;
+    color: green;
+    font-weight: bold;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+  padding: 15px;
+}
+
+.menu a {
+  font-size: 20px;      /* más grande */
+  color: black;         /* letras negras */
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  background: #f2f2f2;  /* solo un resaltado suave */
+}
+
+/* ================= BANNER ================= */
+
+.banner{
+    height: 700px;
+    overflow: hidden;
+}
+
+.banner img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ================= TITULO ================= */
+
+.titulo{
+    text-align: center;
+    margin-top: 40px;
+    font-size: 40px;
+}
+
+/* ================= SLIDER ================= */
+
+.slider-container{
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.slider-track{
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* ================= CARD (TAMAÑO ORIGINAL TUYO) ================= */
+
+.card{
+    flex: 0 0 33.333%;
+    padding: 6px;   /* 🔥 SOLO SEPARACIÓN CONTROLADA */
+}
+
+/* 🔥 ESTE ES TU TAMAÑO ORIGINAL (NO SE TOCA) */
+.card-box{
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 10px gray;
+    transition: 0.3s;
+
+    width: 300px;   /* ✔ tamaño anterior */
+    margin: auto;
+}
+
+.card-box:hover{
+    transform: scale(1.05);
+}
+
+.card-box img{
+    width: 100%;
+    height: 200px;   /* ✔ altura original */
+    object-fit: cover;
+}
+
+.card-box h2{
+    text-align: center;
+    margin: 15px;
+}
+
+.card-box p{
+    text-align: center;
+    margin-bottom: 20px;
+    color: gray;
+}
+
+/* ================= DOTS ================= */
+
+.dots{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dot{
+    height: 10px;
+    width: 10px;
+    margin: 4px;
+    display: inline-block;
+    border-radius: 50%;
+    background: gray;
+}
+
+.active-dot{
+    background: orange;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    z-index:9999;
+}
+
+.modal-contenido{
+    background:white;
+    width:380px;
+    max-width:90%;
+    padding:25px;
+    border-radius:15px;
+    margin:120px auto;
+    text-align:center;
+}
+
+.modal-contenido input{
+    width:90%;
+    padding:12px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+.btn-modal{
+    width:95%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.cerrar{
+    float:right;
+    font-size:28px;
+    cursor:pointer;
+}
+
+.titulo-categoria{
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    padding: 15px;
+    background: #fff3cd;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.seccion{
+    scroll-margin-top: 80px;
+}
+
+.brasas { background:#ffe5b4; }
+.hamburguesas { background:#ffe0b2; }
+.parrillas { background:#ffd6d6; }
+.desayunos { background:#fff3cd; }
+.bebidas { background:#d4f1f4; }
+.postres { background:#f8d7ff; }
+.combos { background:#e2f0cb; } 
+
+.volver-inicio{
+    margin-left: 50px;
+    background: #d62828;
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 8px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+}
+
+.modal-contenido {
+    background: white;
+    width: 360px;
+    max-width: 90%;
+    margin: 10% auto;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: aparecer 0.2s ease-in-out;
+    position: relative;
+    z-index: 100000;
+}
+
+.cerrar {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+@keyframes aparecer {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-contenido h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.modal-contenido p {
+    font-size: 18px;
+    color: #444;
+}
+
+.modal-contenido input {
+    width: 80px;
+    font-size: 20px;
+    text-align: center;
+    padding: 8px;
+    margin-top: 10px;
+    border: 2px solid #0c8f2c;
+    border-radius: 8px;
+}
+
+/* BOTONES GRANDES */
+.modal-contenido button {
+    margin-top: 15px;
+    padding: 12px 18px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* botón agregar */
+.modal-contenido button:first-of-type {
+    background: #0c8f2c;
+    color: white;
+}
+
+/* botón cerrar */
+.modal-contenido button:last-of-type {
+    background: #ccc;
+}
+
+.carrito-btn{
+    margin-left: 20px;
+    background: #0c8f2c;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.carrito-btn:hover{
+    background: #0a6f22;
+}
+
+.footer {
+  background: black;
+  padding: 40px 20px;
+  border-top: 2px solid #ddd;
+  margin-top: 50px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-col h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.footer-col h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.footer-col a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.footer-col a:hover {
+  text-decoration: underline;
+}
+
+.footer-col p {
+  margin: 5px 0;
+  font-size: 15px;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 14px;
+  color: gray;
+}
+
+/*registrar*/
+
+.registro{
+    width: 350px;
+    padding: 30px;
+    text-align: center;
+}
+
+.registro h2{
+    margin-bottom: 20px;
+}
+
+.registro input{
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.registro button{
+    width: 100%;
+    padding: 12px;
+    background: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.registro button:hover{
+    background: #e68900;
+}
+
+/*---------fin---------*/
+
+.admin{
+    width: 350px;
+    padding: 30px;
+    text-align: center;
+}
+
+.admin input{
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.admin button{
+    width: 100%;
+    padding: 12px;
+}
+
+/* pedidos*/
+
+.dashboard{
+    display:flex;
+    gap:20px;
+    margin:30px;
+}
+
+.card-admin{
+    flex:1;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 4px 10px rgba(0,0,0,.1);
+    text-align:center;
+}
+
+.card-admin h2{
+    font-size:40px;
+    color:#0c8f2c;
+}
+
+.card-admin p{
+    font-size:18px;
+    color:#666;
+}
+
+.pedido{
+    background:white;
+    margin:20px;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,.12);
+    border-left:6px solid
+}
+
+.pedido h3{
+    color: #0c8f2c;
+    margin-bottom: 10px;
+}
+
+.pedido p{
+    margin: 8px 0;
+}
+
+.estado{
+    background: #ffd54f;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.btn-eliminar{
+    background: #d62828;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+/* cerrar admin */
+.btn-salir{
+    background:#d62828;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+    display:block;
+    margin:10px auto 20px auto;
+}
+
+.btn-salir:hover{
+    background:#b71c1c;
+}

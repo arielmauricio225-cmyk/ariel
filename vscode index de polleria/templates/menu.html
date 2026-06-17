@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Menú - Troky's</title>
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<style>
+
+
+
+body{
+    font-family: Arial, sans-serif;
+    background:#f5f5f5;
+    margin:0;
+}
+
+.categorias{
+    background:white;
+    padding:15px;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    position:sticky;
+    top:0;
+}
+
+.categorias a{
+    text-decoration:none;
+    color:black;
+    font-weight:bold;
+}
+
+.seccion{
+    max-width:1200px;
+    margin:30px auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+}
+
+.seccion h2{
+    margin-bottom:20px;
+}
+
+.productos{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+    gap:20px;
+}
+
+.producto{
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:15px;
+    text-align:center;
+}
+
+.producto img{
+    width:180px;
+    height:150px;
+    object-fit:cover;
+}
+
+.precio{
+    color:green;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.btn{
+    background:#0c8f2c;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:6px;
+    cursor:pointer;
+}
+</style>
+
+</head>
+
+
+
+<body>
+
+
+
+
+
+<div class="categorias">
+    <a href="#promociones">🔥 Promociones</a>
+    <a href="#brasas">🍗 Brasas</a>
+    <a href="#hamburguesas">🍔 Hamburguesas</a>
+    <a href="#parrillas">🥩 Parrillas</a>
+    <a href="#desayunos">☕ Desayunos</a>
+    <a href="#bebidas">🥤 Bebidas</a>
+    <a href="#postres">🍰 Postres</a>
+    <div class="carrito-btn" onclick="abrirCarrito()">
+        🛒 <span id="contador-carrito">0</span>
+    </div>
+    <a href="/" class="volver-inicio">🏠 Volver</a>
+</div>
+
+
+<section id="promociones" class="seccion">
+
+<div class="titulo-categoria">
+    🔥 PROMOCIONES
+</div>
+
+<div class="productos">
+
+<div class="producto">
+<img src="/static/image5.jpg">
+<h3>Combo Familiar</h3>
+<p class="precio">S/ 89.90</p>
+<button class="btn agregar-btn" data-nombre="Combo Familiar" data-precio="89.90">Agregar</button>
+</div>
+
+<div class="producto">
+<img src="/static/image6.jpg">
+<h3>Combo Personal</h3>
+<p class="precio">S/ 29.90</p>
+<button class="btn agregar-btn" data-nombre="Combo Personal" data-precio="29.90">Agregar</button>
+</div>
+
+<div class="producto">
+<img src="/static/image2.jpeg">
+<h3>1 Pollo + Papas</h3>
+<p class="precio">S/ 89.90</p>
+<button class="btn agregar-btn" data-nombre="1 Pollo + Papas" data-precio="89.90">Agregar</button>
+</div>
+
+<div class="producto">
+<img src="/static/image3.jpeg">
+<h3>Hamburguesa</h3>
+<p class="precio">S/ 15.90</p>
+<button class="btn agregar-btn" data-nombre="Hamburguesa" data-precio="15.90">Agregar</button>
+</div>
+
+<div class="producto">
+<img src="/static/image4.jpeg">
+<h3>Parrilla</h3>
+<p class="precio">S/ 49.90</p>
+<button class="btn agregar-btn" data-nombre="Parrilla" data-precio="49.90">Agregar</button>
+</div>
+
+</div>
+</section>
+
+<section id="brasas" class="seccion">
+
+<div class="titulo-categoria">
+    🍗 BRASAS
+</div>
+
+<div class="productos">
+
+<div class="producto">
+    <img src="/static/pollo1.jpg">
+    <h3>1/4 Pollo a la Brasa</h3>
+    <p class="precio">S/ 18.90</p>
+    <button class="btn agregar-btn" data-nombre="1/4 Pollo a la Brasa" data-precio="18.90">Agregar</button>
+</div>
+
+<div class="producto">
+    <img src="/static/pollo2.jpg">
+    <h3>1/2 Pollo a la Brasa</h3>
+    <p class="precio">S/ 34.90</p>
+    <button class="btn agregar-btn" data-nombre="1/2 Pollo a la Brasa" data-precio="34.90">Agregar</button>
+</div>
+
+<div class="producto">
+    <img src="/static/pollo3.jpg">
+    <h3>Pollo Entero</h3>
+    <p class="precio">S/ 68.90</p>
+    <button class="btn agregar-btn" data-nombre="Pollo Entero" data-precio="68.90">Agregar</button>
+</div>
+
+<div class="producto">
+    <img src="/static/pollo4.jpg">
+    <h3>Mostrito Clásico</h3>
+    <p class="precio">S/ 21.90</p>
+    <button class="btn agregar-btn" data-nombre="Mostrito Clásico" data-precio="21.90">Agregar</button>
+</div>
+
+<div class="producto">
+    <img src="/static/pollo5.jpg">
+    <h3>Mostrito Especial</h3>
+    <p class="precio">S/ 25.90</p>
+    <button class="btn agregar-btn" data-nombre="Mostrito Especial" data-precio="25.90">Agregar</button>
+</div>
+
+<div class="producto">
+    <img src="/static/pollo6.jpg">
+    <h3>Banquete Familiar</h3>
+    <p class="precio">S/ 99.90</p>
+    <button class="btn agregar-btn" data-nombre="Banquete Familiar" data-precio="99.90">Agregar</button>
+</div>
+
+<div class="producto">
+    <img src="/static/pollo7.jpg">
+    <h3>Pollo + Chaufa</h3>
+    <p class="precio">S/ 29.90</p>
+    <button class="btn agregar-btn" data-nombre="Pollo + Chaufa" data-precio="29.90">Agregar</button>
+</div>
+
+<div class="producto">
+    <img src="/static/pollo8.jpg">
+    <h3>Pollo + Ensalada</h3>
+    <p class="precio">S/ 26.90</p>
+    <button class="btn agregar-btn" data-nombre="Pollo + Ensalada" data-precio="26.90">Agregar</button>
+</div>
+
+</div>
+
+</section>
+
+<section id="hamburguesas" class="seccion">
+
+<div class="titulo-categoria">
+    🍔 HAMBURGUESAS
+</div>
+
+<div class="productos">
+
+<div class="producto">
+    <img src="/static/hamburguesa1.jpg">
+    <h3>Hamburguesa Clásica</h3>
+    <p class="precio">S/ 15.90</p>
+    <button class="btn agregar-btn" data-nombre="Hamburguesa Clásica" data-precio="15.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/hamburguesa2.jpg">
+    <h3>Hamburguesa Doble Carne</h3>
+    <p class="precio">S/ 19.90</p>
+    <button class="btn agregar-btn" data-nombre="Hamburguesa Doble Carne" data-precio="19.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/hamburguesa3.jpg">
+    <h3>Hamburguesa BBQ</h3>
+    <p class="precio">S/ 18.90</p>
+    <button class="btn agregar-btn" data-nombre="Hamburguesa BBQ" data-precio="18.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/hamburguesa4.jpg">
+    <h3>Hamburguesa Royal</h3>
+    <p class="precio">S/ 21.90</p>
+    <button class="btn agregar-btn" data-nombre="Hamburguesa Royal" data-precio="21.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/hamburguesa5.jpg">
+    <h3>Hamburguesa con Tocino</h3>
+    <p class="precio">S/ 20.90</p>
+    <button class="btn agregar-btn" data-nombre="Hamburguesa con Tocino" data-precio="20.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/hamburguesa6.jpg">
+    <h3>Hamburguesa Criolla</h3>
+    <p class="precio">S/ 22.90</p>
+    <button class="btn agregar-btn" data-nombre="Hamburguesa Criolla" data-precio="22.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/hamburguesa7.jpg">
+    <h3>Hamburguesa de Pollo</h3>
+    <p class="precio">S/ 16.90</p>
+    <button class="btn agregar-btn" data-nombre="Hamburguesa de Pollo" data-precio="16.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/hamburguesa8.jpg">
+    <h3>Hamburguesa Triple</h3>
+    <p class="precio">S/ 24.90</p>
+    <button class="btn agregar-btn" data-nombre="Hamburguesa Triple" data-precio="24.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/hamburguesa9.jpg">
+    <h3>Hamburguesa Cheese</h3>
+    <p class="precio">S/ 18.90</p>
+    <button class="btn agregar-btn" data-nombre="Hamburguesa Cheese" data-precio="18.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/hamburguesa10.jpg">
+    <h3>Hamburguesa Troky's</h3>
+    <p class="precio">S/ 25.90</p>
+    <button class="btn agregar-btn" data-nombre="Hamburguesa Troky's" data-precio="25.90">
+        Agregar
+    </button>
+</div>
+
+</div>
+
+</section>
+
+<section id="parrillas" class="seccion">
+
+<div class="titulo-categoria">
+    🥩 PARRILLAS
+</div>
+
+<div class="productos">
+
+<div class="producto">
+    <img src="/static/parrilla1.jpg">
+    <h3>Parrilla Personal</h3>
+    <p class="precio">S/ 39.90</p>
+    <button class="btn agregar-btn" data-nombre="Parrilla Personal" data-precio="39.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/parrilla2.jpg">
+    <h3>Parrilla Dúo</h3>
+    <p class="precio">S/ 69.90</p>
+    <button class="btn agregar-btn" data-nombre="Parrilla Dúo" data-precio="69.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/parrilla3.jpg">
+    <h3>Parrilla Familiar</h3>
+    <p class="precio">S/ 109.90</p>
+    <button class="btn agregar-btn" data-nombre="Parrilla Familiar" data-precio="109.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/parrilla4.jpg">
+    <h3>Anticuchos</h3>
+    <p class="precio">S/ 24.90</p>
+    <button class="btn agregar-btn" data-nombre="Anticuchos" data-precio="24.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/parrilla5.jpg">
+    <h3>Costillas BBQ</h3>
+    <p class="precio">S/ 42.90</p>
+    <button class="btn agregar-btn" data-nombre="Costillas BBQ" data-precio="42.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/parrilla6.jpg">
+    <h3>Churrasco Especial</h3>
+    <p class="precio">S/ 36.90</p>
+    <button class="btn agregar-btn" data-nombre="Churrasco Especial" data-precio="36.90">
+        Agregar
+    </button>
+</div>
+
+</div>
+
+</section>
+
+<section id="desayunos" class="seccion">
+
+<div class="titulo-categoria">
+    ☕ DESAYUNOS
+</div>
+
+<div class="productos">
+
+<div class="producto">
+    <img src="/static/desayuno1.jpg">
+    <h3>Desayuno Americano</h3>
+    <p class="precio">S/ 14.90</p>
+    <button class="btn agregar-btn" data-nombre="Desayuno Americano" data-precio="14.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/desayuno2.jpg">
+    <h3>Desayuno Criollo</h3>
+    <p class="precio">S/ 16.90</p>
+    <button class="btn agregar-btn" data-nombre="Desayuno Criollo" data-precio="16.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/desayuno3.jpg">
+    <h3>Pan con Chicharrón</h3>
+    <p class="precio">S/ 12.90</p>
+    <button class="btn agregar-btn" data-nombre="Pan con Chicharrón" data-precio="12.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/desayuno4.jpg">
+    <h3>Pan con Pollo</h3>
+    <p class="precio">S/ 10.90</p>
+    <button class="btn agregar-btn" data-nombre="Pan con Pollo" data-precio="10.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/desayuno5.jpg">
+    <h3>Omelette Especial</h3>
+    <p class="precio">S/ 15.90</p>
+    <button class="btn agregar-btn" data-nombre="Omelette Especial" data-precio="15.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/desayuno6.jpg">
+    <h3>Tamal + Café</h3>
+    <p class="precio">S/ 11.90</p>
+    <button class="btn agregar-btn" data-nombre="Tamal + Café" data-precio="11.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/desayuno7.jpg">
+    <h3>Sandwich Mixto</h3>
+    <p class="precio">S/ 9.90</p>
+    <button class="btn agregar-btn" data-nombre="Sandwich Mixto" data-precio="9.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/desayuno8.jpg">
+    <h3>Huevos Revueltos</h3>
+    <p class="precio">S/ 13.90</p>
+    <button class="btn agregar-btn" data-nombre="Huevos Revueltos" data-precio="13.90">
+        Agregar
+    </button>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="bebidas" class="seccion">
+
+<div class="titulo-categoria">
+    🥤 BEBIDAS
+</div>
+
+<div class="productos">
+
+<div class="producto">
+    <img src="/static/bebida1.jpg">
+    <h3>Inca Kola 500ml</h3>
+    <p class="precio">S/ 4.50</p>
+    <button class="btn agregar-btn" data-nombre="Inca Kola 500ml" data-precio="4.50">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/bebida2.jpg">
+    <h3>Inca Kola 1.5L</h3>
+    <p class="precio">S/ 8.90</p>
+    <button class="btn agregar-btn" data-nombre="Inca Kola 1.5L" data-precio="8.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/bebida3.jpg">
+    <h3>Coca Cola 500ml</h3>
+    <p class="precio">S/ 4.50</p>
+    <button class="btn agregar-btn" data-nombre="Coca Cola 500ml" data-precio="4.50">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/bebida4.jpg">
+    <h3>Coca Cola 1.5L</h3>
+    <p class="precio">S/ 8.90</p>
+    <button class="btn agregar-btn" data-nombre="Coca Cola 1.5L" data-precio="8.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/bebida5.jpg">
+    <h3>Chicha Morada</h3>
+    <p class="precio">S/ 6.90</p>
+    <button class="btn agregar-btn" data-nombre="Chicha Morada" data-precio="6.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/bebida6.jpg">
+    <h3>Limonada Frozen</h3>
+    <p class="precio">S/ 7.90</p>
+    <button class="btn agregar-btn" data-nombre="Limonada Frozen" data-precio="7.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/bebida7.jpg">
+    <h3>Maracuyá</h3>
+    <p class="precio">S/ 6.90</p>
+    <button class="btn agregar-btn" data-nombre="Maracuyá" data-precio="6.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/bebida8.jpg">
+    <h3>Agua Mineral</h3>
+    <p class="precio">S/ 3.50</p>
+    <button class="btn agregar-btn" data-nombre="Agua Mineral" data-precio="3.50">
+        Agregar
+    </button>
+</div>
+
+</div>
+
+</section>
+
+<section id="postres" class="seccion">
+
+<div class="titulo-categoria">
+    🍰 POSTRES
+</div>
+
+<div class="productos">
+
+<div class="producto">
+    <img src="/static/postre1.jpg">
+    <h3>Cheesecake</h3>
+    <p class="precio">S/ 9.90</p>
+
+    <button class="btn agregar-btn" data-nombre="Cheesecake" data-precio="9.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/postre2.jpg">
+    <h3>Torta de Chocolate</h3>
+    <p class="precio">S/ 10.90</p>
+
+    <button class="btn agregar-btn" data-nombre="Torta de Chocolate" data-precio="10.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/postre3.jpg">
+    <h3>Pie de Limón</h3>
+    <p class="precio">S/ 8.90</p>
+
+    <button class="btn agregar-btn" data-nombre="Pie de Limón" data-precio="8.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/postre4.jpg">
+    <h3>Tres Leches</h3>
+    <p class="precio">S/ 9.90</p>
+
+    <button class="btn agregar-btn" data-nombre="Tres Leches" data-precio="9.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/postre5.jpg">
+    <h3>Brownie</h3>
+    <p class="precio">S/ 7.90</p>
+
+    <button class="btn agregar-btn" data-nombre="Brownie" data-precio="7.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/postre6.jpg">
+    <h3>Helado de Vainilla</h3>
+    <p class="precio">S/ 6.90</p>
+
+    <button class="btn agregar-btn" data-nombre="Helado de Vainilla" data-precio="6.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/postre7.jpg">
+    <h3>Helado de Chocolate</h3>
+    <p class="precio">S/ 6.90</p>
+
+    <button class="btn agregar-btn" data-nombre="Helado de Chocolate" data-precio="6.90">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <img src="/static/postre8.jpg">
+    <h3>Mazamorra Morada</h3>
+    <p class="precio">S/ 5.90</p>
+
+    <button class="btn agregar-btn" data-nombre="Mazamorra Morada" data-precio="5.90">
+        Agregar
+    </button>
+</div>
+
+</div>
+
+</section>
+
+
+<div id="modalCarrito" class="modal">
+  <div class="modal-contenido">
+    <h2>🛒 Carrito</h2>
+
+    <div id="lista-carrito"></div>
+
+    <h3>Total: S/ <span id="total">0.00</span></h3>
+
+    <button onclick="comprar()">🛍 Comprar</button>
+  </div>
+</div>
+
+<!-- 🪟 MODAL PRODUCTO -->
+<div id="modalProducto" class="modal">
+  <div class="modal-contenido">
+
+    <h2 id="nombreProd"></h2>
+    <p>S/ <span id="precioProd"></span></p>
+
+    <input type="number" id="cantidad" value="1" min="1">
+
+    <br><br>
+
+    <button onclick="agregarAlCarrito()">Agregar</button>
+    <button onclick="cerrarProducto()">Cerrar</button>
+
+  </div>
+</div>
+
+
+</div>
+<footer class="footer">
+    <div class="footer-contenido">
+
+        <h3>📍 Lima - Perú</h3>
+
+        <div class="info-contacto">
+            <p>📞 Número de pedidos: +51 999 888 777</p>
+            <p>⏰ Atención: 24/7</p>
+            <p>📧 Correo: pedidos@trokyspolleria.com</p>
+        </div>
+
+        <p class="copy">© 2025 Pollería Troky's - Todos los derechos reservados</p>
+
+    </div>
+</footer>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

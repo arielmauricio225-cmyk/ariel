@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Admin - Troky's</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<script>
+function cerrarPanel(){
+    window.location.href = "/";
+}
+</script>
+
+<body>
+
+    <h1 class="titulo-admin">
+        🐔 Panel Administrativo Troky's
+    </h1>
+
+<button class="btn-salir" onclick="cerrarPanel()">
+    🚪 Cerrar Panel
+</button>
+
+
+    <!-- TARJETAS -->
+    <div class="dashboard">
+
+        <div class="card-admin">
+            <h2 id="totalPedidos">0</h2>
+            <p>📦 Pedidos</p>
+        </div>
+
+        <div class="card-admin">
+            <h2>🍗</h2>
+            <p>Pedidos Recibidos</p>
+        </div>
+
+        <div class="card-admin">
+            <h2>💰</h2>
+            <p>Ventas</p>
+        </div>
+
+    </div>
+
+    <!-- LISTA DE PEDIDOS -->
+    <div id="listaPedidos"></div>
+
+
+
+<div id="modalAdmin" class="modal">
+    <div class="modal-contenido">
+
+        <span class="cerrar" onclick="cerrarAdmin()">&times;</span>
+
+        <h2>🔒 Acceso Administrador</h2>
+
+        <input type="password"
+               id="adminPass"
+               placeholder="Contraseña">
+
+        <button onclick="ingresarAdmin()">
+            Ingresar
+        </button>
+
+    </div>
+</div>
+
+
+<script>
+
+let pedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
+
+document.getElementById("totalPedidos").innerText = pedidos.length;
+
+let html = "";
+
+pedidos.forEach((pedido, index) => {
+
+    html += `
+    <div class="pedido">
+
+        <h3>📦 Pedido #${index + 1}</h3>
+
+        <p><b>👤 Cliente:</b> ${pedido.cliente}</p>
+
+        <p><b>📅 Fecha:</b> ${pedido.fecha}</p>
+
+        <p>
+            <span class="estado">
+                ${pedido.estado}
+            </span>
+        </p>
+
+        <h4>🍗 Productos solicitados</h4>
+
+        <ul>
+            ${pedido.productos.map(p =>
+                `<li>${p.nombre} x${p.cantidad}</li>`
+            ).join("")}
+        </ul>
+
+        <button class="btn-eliminar"
+                onclick="eliminarPedido(${index})">
+            🗑 Eliminar Pedido
+        </button>
+
+    </div>
+    `;
+});
+
+document.getElementById("listaPedidos").innerHTML = html;
+
+function eliminarPedido(index){
+
+    let pedidos =
+        JSON.parse(localStorage.getItem("pedidos")) || [];
+
+    pedidos.splice(index, 1);
+
+    localStorage.setItem(
+        "pedidos",
+        JSON.stringify(pedidos)
+    );
+
+    location.reload();
+}
+
+</script>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Pollería Roky's</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div id="modalAdmin" class="modal">
+    <div class="modal-contenido admin">
+
+        <span class="cerrar" onclick="cerrarAdmin()">&times;</span>
+
+        <h2>🔒 Acceso Administrador</h2>
+
+        <input type="password"
+               id="adminPass"
+               placeholder="Ingrese la contraseña">
+
+        <button onclick="ingresarAdmin()" class="btn-modal">
+            Ingresar
+        </button>
+
+    </div>
+</div>
+
+
+<!-- LOGIN -->
+<div id="modalLogin" class="modal">
+    <div class="modal-contenido registro">
+
+        <span class="cerrar" onclick="cerrarLogin()">&times;</span>
+
+        <h2>🔐 Iniciar Sesión</h2>
+
+        <input type="email" id="loginEmail" placeholder="Correo electrónico">
+        <input type="password" id="loginPass" placeholder="Contraseña">
+
+        <button onclick="login()" class="btn-modal">Ingresar</button>
+
+    </div>
+</div>
+
+<!-- REGISTRO -->
+<div id="modalRegistro" class="modal">
+    <div class="modal-contenido registro">
+
+        <span class="cerrar" onclick="cerrarRegistro()">&times;</span>
+
+        <h2>📝 Registrarse</h2>
+
+        <input type="text" id="regNombre" placeholder="Nombre completo">
+        <input type="email" id="regEmail" placeholder="Correo electrónico">
+        <input type="password" id="regPass" placeholder="Contraseña">
+
+        <button onclick="registrar()" class="btn-modal">Crear Cuenta</button>
+
+    </div>
+</div>
+
+
+    <!-- MODAL POLÍTICA -->
+<div id="modalPolitica" class="modal">
+    <div class="modal-contenido">
+
+        <span class="cerrar" onclick="cerrarPolitica()">&times;</span>
+
+        <h2>📄 Política de Privacidad</h2>
+
+        <p>
+            En Troky's respetamos tu privacidad.  
+            Los datos que ingresas solo se usan para procesar tus pedidos y mejorar tu experiencia.
+            No compartimos tu información con terceros.
+        </p>
+
+    </div>
+</div>
+
+<!-- MODAL TÉRMINOS -->
+<div id="modalTerminos" class="modal">
+    <div class="modal-contenido">
+
+        <span class="cerrar" onclick="cerrarTerminos()">&times;</span>
+
+        <h2>📑 Términos y Condiciones</h2>
+
+        <p>
+            Al usar este sitio aceptas nuestros términos.  
+            Los precios pueden cambiar sin previo aviso.  
+            Los pedidos están sujetos a disponibilidad.
+        </p>
+
+    </div>
+</div>
+
+<div class="navbar">
+
+<div class="logo">🐔 Troky's</div>
+
+<div class="menu">
+<a href="/">Inicio</a>
+<a href="/menu">Menú</a>
+<a href="#contacto">Contacto</a>
+
+<a href="#" onclick="abrirLogin()">Iniciar Sesión</a>
+<a href="#" onclick="abrirRegistro()">Registrarse</a>
+<a href="#" onclick="abrirAdmin()">Admin</a>    
+</div>
+</div>
+
+<div class="banner">
+<img src="/static/images1.jpg">
+</div>
+
+<h1 class="titulo">PROMOCIONES</h1>
+
+<div class="slider-container">
+
+<div class="slider-track" id="track">
+
+    <div class="card"><div class="card-box">
+        <img src="/static/image2.jpeg">
+        <h2>1 Pollo + Papas</h2>
+        <p>S/ 89.90</p>
+    </div></div>
+
+    <div class="card"><div class="card-box">
+        <img src="/static/image3.jpeg">
+        <h2>Hamburguesa</h2>
+        <p>S/ 15.90</p>
+    </div></div>
+
+    <div class="card"><div class="card-box">
+        <img src="/static/image4.jpeg">
+        <h2>Parrilla</h2>
+        <p>S/ 49.90</p>
+    </div></div>
+
+    <div class="card"><div class="card-box">
+        <img src="/static/image5.jpg">
+        <h2>Combo Familiar</h2>
+        <p>S/ 99.90</p>
+    </div></div>
+
+    <div class="card"><div class="card-box">
+        <img src="/static/image6.jpg">
+        <h2>Combo Personal</h2>
+        <p>S/ 29.90</p>
+    </div></div>
+
+    <div class="card"><div class="card-box">
+        <img src="/static/image7.jpg">
+        <h2>Oferta Especial</h2>
+        <p>S/ 39.90</p>
+    </div></div>
+
+</div>
+
+</div>
+
+<div class="dots" id="dots"></div>
+
+<footer id="contacto" class="footer">
+    <div class="container">
+
+        <div class="footer-content">
+
+            <!-- Marca -->
+            <div class="footer-col">
+                <h3>🐔 Troky's</h3>
+                <p>La mejor pollería de Lima</p>
+            </div>
+
+            <!-- Menú -->
+            <div class="footer-col">
+                <h4>Menú</h4>
+                <a href="/menu">Pollos</a>
+                <a href="/menu">Hamburguesas</a>
+                <a href="/menu">Combos</a>
+            </div>
+
+            <!-- Contacto -->
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p>📞 Pedidos: +51 999 888 777</p>
+                <p>⏰ Atención: 24/7</p>
+                <p>📍 Lima - Perú</p>
+            </div>
+
+            <!-- Soporte -->
+            <div class="footer-col">
+                <h4>Soporte</h4>
+
+                <a href="javascript:void(0)" onclick="abrirPolitica()">
+                    Política de privacidad
+                </a>
+
+                <a href="javascript:void(0)" onclick="abrirTerminos()">
+                    Términos y condiciones
+                </a>
+
+                <a href="#contacto">Ayuda</a>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2025 Troky's - Todos los derechos reservados
+        </div>
+
+    </div>
+</footer>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
